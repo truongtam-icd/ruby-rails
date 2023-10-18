@@ -130,6 +130,7 @@ GEM
     minitest (5.20.0)
     msgpack (1.7.2)
     mutex_m (0.1.2)
+    mysql2 (0.5.5)
     net-imap (0.4.1)
       date
       net-protocol
@@ -245,6 +246,7 @@ DEPENDENCIES
   error_highlight (>= 0.4.0)
   importmap-rails
   jbuilder
+  mysql2 (~> 0.5.5)
   puma (>= 5.0)
   rails (~> 7.1.1)
   selenium-webdriver

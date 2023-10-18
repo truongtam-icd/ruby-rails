@@ -1,0 +1,8 @@
+version: "3.2"
+services:
+  mysql:
+    build:
+      context: ./docker
+      dockerfile: Ruby.Dockerfile
+    ports:
+      - "3000:3000"

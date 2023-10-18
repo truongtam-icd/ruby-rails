@@ -1,0 +1,12 @@
+version: "3.2"
+services:
+  mysql:
+    build:
+      context: ./docker
+      dockerfile: MySQL.Dockerfile
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: rails_dev
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: root
