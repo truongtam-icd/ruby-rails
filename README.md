@@ -29,6 +29,12 @@ http://localhost:3000
 bundle install
 ```
 
+### Unit test
+
+```
+bundle exec rake test
+```
+
 ### Document:
 
 * [Getting Started with Rails](https://guides.rubyonrails.org/getting_started.html)

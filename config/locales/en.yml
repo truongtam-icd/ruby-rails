@@ -29,3 +29,4 @@
 
 en:
   hello: "Hello world"
+  error_invalid_authenticity_token: "Error invalid authenticity token"
