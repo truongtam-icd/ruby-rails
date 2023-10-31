@@ -12,9 +12,9 @@ Rails >= 7.1.1
 
 ```
 cd ~/project/ruby-rails
-bundle exec rake db:create
-bundle exec rake db:migrate RAILS_ENV="development"
-bin/rails server -e development
+bundle exec rake db:create RAILS_ENV=development
+bundle exec rake db:migrate RAILS_ENV=development
+bin/rails server -e development RAILS_ENV=development
 ```
 
 ### Localhost
@@ -29,9 +29,17 @@ http://localhost:3000
 bundle install
 ```
 
+### How to make MVC
+
+```
+bin/rails generate model <Name>
+```
+
 ### Unit test
 
 ```
+bundle exec rake db:create RAILS_ENV=test
+bundle exec rake db:migrate RAILS_ENV=test
 bundle exec rake test
 ```
 

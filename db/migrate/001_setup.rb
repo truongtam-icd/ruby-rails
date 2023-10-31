@@ -1,8 +1,4 @@
 class Setup < ActiveRecord::Migration[7.1]
-
-  class User < ActiveRecord::Base
-  end
-
   # model removed
   class Permission < ActiveRecord::Base; end
 
