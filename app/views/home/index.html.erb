@@ -1,5 +1,7 @@
 <form action="/login" method="post">
-  <input type="input">
-  <input type="password">
+  <input type="hidden" name="authenticity_token" value={csrf}/>
+  <input name="user" type="input">
+  <input name="password" type="password">
+  <span><%= @error %></span>
   <button type="submit">Submit</button>
 </form>

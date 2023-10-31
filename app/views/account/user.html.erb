@@ -1,1 +1,7 @@
 Information User
+<%= @user %>
+<%= @user %>
+<form action="/logout" method="post">
+  <input type="hidden" name="authenticity_token" value={csrf}/>
+  <button type="submit">Logout</button>
+</form>

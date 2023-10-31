@@ -14,7 +14,7 @@ Rails >= 7.1.1
 cd ~/project/ruby-rails
 bundle exec rake db:create RAILS_ENV=development
 bundle exec rake db:migrate RAILS_ENV=development
-bin/rails server -e development RAILS_ENV=development
+bin/rails server -e development
 ```
 
 ### Localhost

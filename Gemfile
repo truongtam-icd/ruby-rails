@@ -66,3 +66,7 @@ group :test do
 end
 
 gem "mysql2", "~> 0.5.5", :platforms => [:mri, :mingw, :x64_mingw]
+
+gem "jwt"
+
+gem "rack-cors"

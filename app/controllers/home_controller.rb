@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    logger.info("Home")
+    render :template => "home/index"
   end
 end

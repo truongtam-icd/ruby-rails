@@ -1,7 +1,10 @@
 require "digest/sha1"
+require "jwt"
 
 class User < ActiveRecord::Base
   logger = Rails.logger
+  secret_key = ""
+  algorithm = "HS256"
 
   class << self
     def hash_password(clear_password)
@@ -28,6 +31,14 @@ class User < ActiveRecord::Base
     user
   rescue => text
     raise text
+  end
+
+  def self.token(login, password)
+    user = User.try_to_login(login, password)
+    if user
+      jwt = Auth.encode({user: user.id})
+    else
+    end
   end
 
   def self.find_by_login(login)
