@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html class="dark">
+  <head>
+    <title>RubyRails</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+  </head>
+
+  <body class="dark:bg-gray-900 dark:text-white">
+    <main>
+      <div id="sidebar">
+        <%= yield :sidebar %>
+      </div>
+
+      <div id="content">
+        <%= yield %>
+      </div>
+
+      <div id="footer">
+        <%= yield :footer %>
+      </div>
+    </main>
+  </body>
+</html>

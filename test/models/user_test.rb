@@ -18,8 +18,13 @@ class UserTest < ActiveSupport::TestCase
     assert_equal(user.login, "admin")
   end
 
-  test "" do
+  test "hash_password" do
     hash_password = User.hash_password("test")
     logger.info("hash_password: " + hash_password)
+  end
+
+  test "token" do
+    token = User.token("admin", "test")
+    logger.info(token)
   end
 end

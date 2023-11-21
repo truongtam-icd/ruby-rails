@@ -37,8 +37,10 @@ class User < ActiveRecord::Base
     user = User.try_to_login(login, password)
     if user
       jwt = Auth.encode({user: user.id})
+      return jwt
     else
     end
+    return nil
   end
 
   def self.find_by_login(login)
@@ -48,6 +50,19 @@ class User < ActiveRecord::Base
         user = find_by("LOWER(login) = ?", login.downcase)
       end
       user
+    end
+  end
+
+  def self.info_user(id)
+    user = where(:id => id).detect {|u| u.id == id}
+    if (user)
+      return {
+        firstname: user["firstname"],
+        lastname: user["lastname"],
+        mail: user["mail"]
+      }
+    else
+      return nil
     end
   end
 

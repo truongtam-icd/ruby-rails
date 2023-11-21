@@ -6,7 +6,7 @@ class AccountController < ApplicationController
     if user
       jwt = User.token(auth_params[:user], auth_params[:password])
       cookies[:token] = jwt
-      redirect_to "/user/1"
+      redirect_to "/user/" + user.id.to_s
     else
       @error = "Wrong user or password"
       render :template => "home/index"
@@ -21,7 +21,15 @@ class AccountController < ApplicationController
   def user
     token = cookies[:token]
     data = Auth.decode(token)
+
     if data
+      user_id = data[0]["user"]
+      if (params[:id].to_s != user_id.to_s)
+        cookies.delete(:token)
+        redirect_to "/"
+        return
+      end
+      @user = User.info_user(user_id)
       render :template => "account/user"
     else
       cookies.delete(:token)
@@ -30,7 +38,7 @@ class AccountController < ApplicationController
   end
 
   def getToken
-    jwt = User.token("admin", "admin")
+    jwt = User.token(auth_params[:user], auth_params[:password])
     render json: {token: jwt}
   end
 

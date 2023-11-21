@@ -14,7 +14,14 @@ Rails >= 7.1.1
 cd ~/project/ruby-rails
 bundle exec rake db:create RAILS_ENV=development
 bundle exec rake db:migrate RAILS_ENV=development
+bin/rails tailwindcss:install
 bin/rails server -e development
+```
+
+### Rebuild tailwindcss
+
+```
+bin/rails tailwindcss:build
 ```
 
 ### Localhost
@@ -34,6 +41,7 @@ bundle install
 ```
 bin/rails generate model <Name>
 ```
+
 
 ### Unit test
 

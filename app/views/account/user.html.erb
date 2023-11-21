@@ -1,7 +1,14 @@
+<% content_for :sidebar do %>
+  <% render :partial => 'helpers/sidebar' %>
+<% end %>
+
+
 Information User
-<%= @user %>
-<%= @user %>
-<form action="/logout" method="post">
-  <input type="hidden" name="authenticity_token" value={csrf}/>
-  <button type="submit">Logout</button>
-</form>
+<p>First Name: <%= @user[:firstname] %></p>
+<p>Last Name: <%= @user[:lastname] %></p>
+<p>Email: <%= @user[:mail] %></p>
+
+
+<% content_for :footer do %>
+  <% render :partial => 'helpers/footer' %>
+<% end %>
