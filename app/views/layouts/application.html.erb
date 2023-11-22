@@ -12,18 +12,10 @@
   </head>
 
   <body class="dark:bg-gray-900 dark:text-white">
-    <main>
-      <div id="sidebar">
-        <%= yield :sidebar %>
-      </div>
+    <%= yield :sidebar %>
 
-      <div id="content">
-        <%= yield %>
-      </div>
+    <%= yield %>
 
-      <div id="footer">
-        <%= yield :footer %>
-      </div>
-    </main>
+    <%= yield :footer %>
   </body>
 </html>

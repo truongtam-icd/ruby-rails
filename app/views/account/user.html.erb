@@ -1,13 +1,18 @@
 <% content_for :sidebar do %>
-  <% render :partial => 'helpers/sidebar' %>
+  <% render :partial => 'helpers/sidebar', :locals => {:sidebar => {user: true}} %>
 <% end %>
 
+<div class="p-4 sm:ml-64 min-h-[86vh]">
+  <div class="grid">
+    <h1>Information User</h1>
+  </div>
 
-Information User
-<p>First Name: <%= @user[:firstname] %></p>
-<p>Last Name: <%= @user[:lastname] %></p>
-<p>Email: <%= @user[:mail] %></p>
-
+  <div class="grid">
+    <p>First Name: <%= @user[:firstname] %></p>
+    <p>Last Name: <%= @user[:lastname] %></p>
+    <p>Email: <%= @user[:mail] %></p>
+  </div>
+</div>
 
 <% content_for :footer do %>
   <% render :partial => 'helpers/footer' %>
