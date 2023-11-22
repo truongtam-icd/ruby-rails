@@ -2,11 +2,15 @@ class AccountController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def login
-    user = User.try_to_login(auth_params[:user], auth_params[:password])
-    if user
-      jwt = User.token(auth_params[:user], auth_params[:password])
-      cookies[:token] = jwt
-      redirect_to "/user/" + user.id.to_s
+    if request.request_method == "POST"
+      user = User.try_to_login(auth_params[:user], auth_params[:password])
+      if user
+        jwt = User.token(auth_params[:user], auth_params[:password])
+        cookies[:token] = jwt
+        redirect_to "/user/" + user.id.to_s
+      else
+        redirect_to "/login"
+      end
     else
       @error = "Wrong user or password"
       render :template => "home/index"

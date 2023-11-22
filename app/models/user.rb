@@ -81,6 +81,28 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.insert_user(payload)
+    if !payload[:login]
+      return nil
+    end
+
+    user = self.find_by_login(payload[:login])
+    if (user)
+      return nil
+    else
+      user = User.new :firstname => payload[:firstname],
+                      :lastname => payload[:lastname],
+                      :mail => payload[:email],
+                      :mail_notification => true,
+                      :status => 1
+      user.login = payload[:login]
+      user.hashed_password = User.hash_password(payload[:password])
+      user.admin = false
+      user.save
+      return true
+    end
+  end
+
   def check_password?(clear_password)
     User.hash_password(clear_password) == hashed_password
   end
