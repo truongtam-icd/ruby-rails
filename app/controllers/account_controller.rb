@@ -23,6 +23,21 @@ class AccountController < ApplicationController
     data = Auth.decode(token)
 
     if data
+      if request.request_method == "POST"
+        user_id = params[:id].to_i
+        status = User.update_user(user_id, {
+          firstname: params[:firstname],
+          lastname: params[:lastname]
+        })
+        if status
+          redirect_to "/user/" + user_id.to_s
+          return
+        else
+          redirect_to "/"
+          return
+        end
+      end
+
       user_id = data[0]["user"]
       if (params[:id].to_s != user_id.to_s)
         cookies.delete(:token)

@@ -59,8 +59,23 @@ class User < ActiveRecord::Base
       return {
         firstname: user["firstname"],
         lastname: user["lastname"],
-        mail: user["mail"]
+        mail: user["mail"],
+        id: user["id"]
       }
+    else
+      return nil
+    end
+  end
+
+  def self.update_user(id, payload)
+    user = where(:id => id).detect {|u| u.id == id}
+    if (user)
+      User.where(['id = ?', id]).update_all([
+        'firstname = ?, lastname = ?',
+        payload[:firstname],
+        payload[:lastname]
+      ])
+      return true
     else
       return nil
     end

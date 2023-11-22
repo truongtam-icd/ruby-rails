@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   match 'logout', :to => 'account#logout', :as => 'logout', :via => [:post]
   match 'token', :to => 'account#token', :as => 'token', :via => [:post]
 
-  match 'user/:id', :to => 'account#user', :as => 'user', :via => [:get]
+  match 'user/:id', :to => 'account#user', :as => 'user', :via => [:get, :post]
 end
