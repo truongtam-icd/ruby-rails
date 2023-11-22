@@ -9,11 +9,9 @@ class AccountController < ApplicationController
         cookies[:token] = jwt
         redirect_to "/user/" + user.id.to_s
       else
-        redirect_to "/login"
+        flash[:error_login] = "Wrong user or password"
+        redirect_to "/"
       end
-    else
-      @error = "Wrong user or password"
-      render :template => "home/index"
     end
   end
 

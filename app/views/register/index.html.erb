@@ -14,7 +14,9 @@
             required
             value=""
           >
-          <span class="text-red-500"><%= @error -%></span>
+          <% if flash[:error_register] %>
+            <span class="text-red-500"><%= flash[:error_register] %></span>
+          <% end %>
         </div>
         <div class="mb-4">
           <label for="password" class="block mb-2 text-sm font-medium">Your password</label>
@@ -27,7 +29,6 @@
             required
             value=""
           >
-          <span class="text-red-500"><%= @error %></span>
         </div>
         <div class="mb-4">
           <label for="email" class="block mb-2 text-sm font-medium">Email</label>

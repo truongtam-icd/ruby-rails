@@ -14,7 +14,9 @@
             required
             value=""
           >
-          <span class="text-red-500"><%= @error %></span>
+          <% if flash[:error_login] %>
+            <span class="text-red-500"><%= flash[:error_login] %></span>
+          <% end %>
         </div>
         <div class="mb-4">
           <label for="password" class="block mb-2 text-sm font-medium">Your password</label>
@@ -27,7 +29,9 @@
             required
             value=""
           >
-          <span class="text-red-500"><%= @error %></span>
+          <% if flash[:error_login] %>
+            <span class="text-red-500"><%= flash[:error_login] %></span>
+          <% end %>
         </div>
         <div class="flex items-center justify-between mb-4">
           <button
